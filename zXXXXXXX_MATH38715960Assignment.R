@@ -9,7 +9,7 @@ set.seed(1234)
 #INSTRUCTIONS 
 #1. Do not delete or edit existing text in this template, only add to it. 
 #2. Ensure your student number is in the file name. 
-
+more
 
 
 
@@ -22,7 +22,7 @@ set.seed(1234)
 #-------------------------------------------------------------------------------
 #QUESTION 1.
 wine = read.csv('C:/Users/felix/OneDrive/Documents/vscode/3871/winequality-red.csv')
-# wine = read.csv('winequality-red.csv')
+# wine = read.csv('./winequality-red.csv')
 wine = na.omit(wine)
 head(wine)
 
@@ -35,8 +35,9 @@ str(wine$good)
 #-------------------------------------------------------------------------------
 #QUESTION 3. 
 
-  
-mleest = glm(wine$good, family = binomial(link = "logit"), data = wine)
+# change: wine$good as response variables, parametres are all params in input
+mleest = glm(quality ~ wine$good, family = binomial(link = "logit"), data = wine)
+summary(model)$coefficients
 
 #-------------------------------------------------------------------------------
 
@@ -55,7 +56,7 @@ lpost.LR <- function(beta,X,y) {
 mhmcmc <- function(y, X, B, nsims, Sigma) {
 
   #You must use mvrnorm for random sampling from a multivariate normal. 
-  mvrnorm
+  mvnorm
   
 }
 
