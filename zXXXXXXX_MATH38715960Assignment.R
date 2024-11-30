@@ -9,7 +9,7 @@ set.seed(1234)
 #INSTRUCTIONS 
 #1. Do not delete or edit existing text in this template, only add to it. 
 #2. Ensure your student number is in the file name. 
-more
+#more
 
 
 
@@ -36,7 +36,10 @@ str(wine$good)
 #QUESTION 3. 
 
 # change: wine$good as response variables, parametres are all params in input
-mleest = glm(quality ~ wine$good, family = binomial(link = "logit"), data = wine)
+# ex_column = c('quality')
+wine_ex = wine[, !(names(wine) %in% c("good", "quality"))]
+
+mleest = glm(good ~ ., family = binomial(link = "logit"), data = wine_ex)
 summary(model)$coefficients
 
 #-------------------------------------------------------------------------------
@@ -46,7 +49,7 @@ summary(model)$coefficients
 #QUESTION 2.
 
 lpost.LR <- function(beta,X,y) {
- 
+
   
 }			
 
